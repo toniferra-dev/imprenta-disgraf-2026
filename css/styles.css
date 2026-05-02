@@ -559,6 +559,24 @@ textarea {
   font-weight: 650;
 }
 
+.contact-banner {
+  margin: var(--space-page) var(--space-page) 0;
+  border: 1px solid var(--color-line);
+  background: var(--color-soft);
+}
+
+.contact-banner__picture,
+.contact-banner__image {
+  display: block;
+}
+
+.contact-banner__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 10 / 1;
+  object-fit: cover;
+}
+
 .story-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -881,7 +899,8 @@ textarea {
 
   .quote,
   .location,
-  .seo-banner {
+  .seo-banner,
+  .contact-banner {
     margin: 1rem;
     padding: 1rem;
   }
