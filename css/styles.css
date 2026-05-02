@@ -279,6 +279,29 @@ textarea {
   opacity: 0.95;
 }
 
+.hero__picture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero--projects::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(236, 232, 228, 0.82) 0 30%, rgba(236, 232, 228, 0.28) 62%, rgba(236, 232, 228, 0.08) 100%),
+    linear-gradient(0deg, rgba(42, 42, 40, 0.18), transparent 45%);
+}
+
 .press-preview {
   width: min(72rem, 88%);
   min-height: 31rem;
@@ -487,30 +510,42 @@ textarea {
   gap: 1.5rem;
 }
 
-.project-card__image {
-  min-height: 18rem;
+.project-grid--featured {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.project-card {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+}
+
+.project-card__figure {
+  margin: 0;
   border: 1px solid var(--color-line);
-  background-color: #d8d0ca;
-  background-size: cover;
+  background: #fff;
 }
 
-/* Visual placeholders are CSS-built until the client provides real project photos. */
-.project-card__image--signage {
-  background-image:
-    linear-gradient(135deg, rgba(42, 42, 40, 0.88), rgba(42, 42, 40, 0.35)),
-    repeating-linear-gradient(90deg, #faf7f2 0 2rem, #cfc5bf 2rem 2.2rem);
+.project-card__picture {
+  display: block;
+  overflow: hidden;
+  background: var(--color-soft);
 }
 
-.project-card__image--cards {
-  background-image:
-    linear-gradient(150deg, transparent 0 28%, #fff 28% 58%, transparent 58%),
-    linear-gradient(30deg, #1f485a 0 45%, #f4f1ef 45% 100%);
+.project-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
-.project-card__image--catalog {
-  background-image:
-    linear-gradient(90deg, #fff 0 48%, #efe8e2 48% 52%, #fff 52% 100%),
-    repeating-linear-gradient(0deg, #cbc2bd 0 0.8rem, transparent 0.8rem 1.8rem);
+.project-card__caption {
+  padding: 0.85rem;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1.45;
 }
 
 .project-card__title {
@@ -729,6 +764,10 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .project-grid--featured {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .service-card:last-child:nth-child(odd) {
     grid-column: 1 / -1;
   }
@@ -795,6 +834,12 @@ textarea {
     min-height: 42rem;
   }
 
+  .hero--projects::after {
+    background:
+      linear-gradient(0deg, rgba(236, 232, 228, 0.82) 0 36%, rgba(236, 232, 228, 0.2) 100%),
+      linear-gradient(0deg, rgba(42, 42, 40, 0.16), transparent 45%);
+  }
+
   .hero__title {
     max-width: 11ch;
   }
@@ -823,6 +868,10 @@ textarea {
   }
 
   .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-grid--featured {
     grid-template-columns: 1fr;
   }
 
