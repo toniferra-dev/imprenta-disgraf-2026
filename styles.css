@@ -241,7 +241,7 @@ textarea {
 .sidebar__footer {
   display: grid;
   gap: 0.6rem;
-  padding: 0 2rem 1.3rem;
+  padding: 5rem 2rem 1.3rem;
 }
 
 .sidebar__footer a {
