@@ -669,6 +669,44 @@ textarea {
   text-transform: uppercase;
 }
 
+.legal-page {
+  width: min(100%, 58rem);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 5rem) 1.25rem;
+}
+
+.legal-content {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: 2rem;
+  color: var(--color-muted);
+}
+
+.legal-content h2 {
+  margin: 2rem 0 0;
+  color: var(--color-ink);
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  line-height: 1.1;
+}
+
+.legal-content p,
+.legal-content li {
+  margin: 0;
+}
+
+.legal-content ul,
+.legal-content ol {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.legal-content a {
+  color: var(--color-brand);
+  font-weight: 800;
+}
+
 @media (max-width: 1180px) {
   .service-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
