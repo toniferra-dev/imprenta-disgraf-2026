@@ -117,6 +117,7 @@ textarea {
   min-height: 6rem;
   padding: 1.25rem clamp(1rem, 2vw, 1.6rem);
   border-bottom: 1px solid var(--color-line);
+  background-color: var(--color-brand);
 }
 
 .brand {
@@ -125,7 +126,7 @@ textarea {
 }
 
 .brand__logo {
-  width: min(11.875rem, 58vw);
+  width: min(100%, 58vw);
   height: auto;
   display: block;
 }
