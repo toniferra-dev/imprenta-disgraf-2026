@@ -271,16 +271,6 @@ textarea {
     linear-gradient(0deg, rgba(42, 42, 40, 0.28), transparent 45%);
 }
 
-.hero--services::after {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  content: "";
-  background:
-    linear-gradient(90deg, rgba(236, 232, 228, 0.82) 0 32%, rgba(236, 232, 228, 0.36) 58%, rgba(42, 42, 40, 0.16) 100%),
-    linear-gradient(0deg, rgba(42, 42, 40, 0.2), transparent 42%);
-}
-
 .hero--projects::after {
   position: absolute;
   inset: 0;
@@ -299,6 +289,21 @@ textarea {
   background: rgba(255, 253, 251, 0.91);
   padding: clamp(1.5rem, 4vw, 3.2rem);
   backdrop-filter: blur(12px);
+}
+
+.hero--services .hero__content {
+  animation: services-hero-drift 8s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes services-hero-drift {
+  from {
+    transform: translateX(-0.85rem);
+  }
+
+  to {
+    transform: translateX(0.85rem);
+  }
 }
 
 .hero__title {
@@ -791,8 +796,7 @@ textarea {
     min-height: 42rem;
   }
 
-  .hero--projects::after,
-  .hero--services::after {
+  .hero--projects::after {
     background:
       linear-gradient(0deg, rgba(236, 232, 228, 0.82) 0 36%, rgba(236, 232, 228, 0.2) 100%),
       linear-gradient(0deg, rgba(42, 42, 40, 0.16), transparent 45%);
@@ -807,6 +811,13 @@ textarea {
   .story-grid {
     display: grid;
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero--services .hero__content {
+    animation: none;
+    transform: none;
   }
 }
 
