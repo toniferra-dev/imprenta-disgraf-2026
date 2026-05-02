@@ -13,6 +13,7 @@
     <meta property="article:author" content="Toni Ferrà">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://www.imprentadisgraf.com/servicios-imprenta-palma.html">
+    <meta property="og:image" content="https://www.imprentadisgraf.com/img/servicios/hero-servicios-imprenta-palma-1200.jpg">
     <link rel="stylesheet" href="./css/styles.css">
   </head>
   <body>
@@ -45,7 +46,36 @@
         <footer class="sidebar__footer"><a href="./politica-privacidad.html">Política de privacidad</a><a href="./cookies.html">Cookies</a><a href="./condiciones-uso.html">Condiciones de uso</a><a href="./aviso-legal.html">Aviso legal</a></footer>
       </aside>
       <main class="main" id="contenido">
-        <section class="hero" aria-labelledby="hero-title">
+        <section class="hero hero--services" aria-labelledby="hero-title">
+          <picture class="hero__picture">
+            <source
+              type="image/avif"
+              srcset="
+                ./img/servicios/hero-servicios-imprenta-palma-640.avif 640w,
+                ./img/servicios/hero-servicios-imprenta-palma-1200.avif 1200w,
+                ./img/servicios/hero-servicios-imprenta-palma-1774.avif 1774w
+              "
+              sizes="(max-width: 820px) 100vw, calc(100vw - 18rem)"
+            >
+            <source
+              type="image/jpeg"
+              srcset="
+                ./img/servicios/hero-servicios-imprenta-palma-640.jpg 640w,
+                ./img/servicios/hero-servicios-imprenta-palma-1200.jpg 1200w,
+                ./img/servicios/hero-servicios-imprenta-palma-1774.jpg 1774w
+              "
+              sizes="(max-width: 820px) 100vw, calc(100vw - 18rem)"
+            >
+            <img
+              class="hero__image"
+              src="./img/servicios/hero-servicios-imprenta-palma-1200.jpg"
+              width="1200"
+              height="600"
+              alt="Mosaico estilo cómic con rótulos, tarjetas, catálogos, camisetas, photocall e impresión digital de Imprenta Disgraf"
+              fetchpriority="high"
+              decoding="async"
+            >
+          </picture>
           <div class="hero__content">
             <p class="section-kicker">Servicios de imprenta en Palma</p>
             <h1 class="hero__title" id="hero-title">Servicios de imprenta en Palma</h1>
@@ -54,11 +84,11 @@
         </section>
         <section class="section" aria-labelledby="services-title">
           <div class="section__header">
-            <p class="section-kicker">Arquitectura SEO</p>
+            <p class="section-kicker">Elige un servicio</p>
             <h2 class="section__title" id="services-title">Cada servicio cuenta una historia concreta</h2>
           </div>
           <div class="service-grid">
-            <article class="service-card"><span class="service-card__number">01</span><h3 class="service-card__title">Rótulos y rotulación</h3><p class="service-card__text">Rótulos, vinilos y señalética para negocios.</p><a class="service-card__link" href="./presupuesto-imprenta-palma.html">Pedir presupuesto</a></article>
+            <article class="service-card"><span class="service-card__number">01</span><h3 class="service-card__title">Rótulos y rotulación</h3><p class="service-card__text">Rótulos, vinilos y señalética para negocios.</p><a class="service-card__link" href="./rotulos-rotulacion-mallorca.html">Ver página</a></article>
             <article class="service-card"><span class="service-card__number">02</span><h3 class="service-card__title">Tarjetas de visita</h3><p class="service-card__text">Tarjetas para profesionales y empresas.</p><a class="service-card__link" href="./tarjetas-visita-palma.html">Ver página</a></article>
             <article class="service-card"><span class="service-card__number">03</span><h3 class="service-card__title">Photocalls</h3><p class="service-card__text">Photocalls para eventos y campañas.</p><a class="service-card__link" href="./photocall-mallorca.html">Ver página</a></article>
             <article class="service-card"><span class="service-card__number">04</span><h3 class="service-card__title">Catálogos</h3><p class="service-card__text">Catálogos y revistas impresas.</p><a class="service-card__link" href="./impresion-catalogos-mallorca.html">Ver página</a></article>

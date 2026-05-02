@@ -23,10 +23,18 @@ if (sidebar && menuToggle) {
 
 // Mark the current multipage navigation item without relying on server-side templates.
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
+const servicePages = new Set([
+  "rotulos-rotulacion-mallorca.html",
+  "tarjetas-visita-palma.html",
+  "photocall-mallorca.html",
+  "impresion-catalogos-mallorca.html",
+  "camisetas-personalizadas-mallorca.html",
+  "impresion-digital-palma.html",
+]);
 
 menuLinks.forEach((link) => {
   const linkPage = link.getAttribute("href")?.replace("./", "");
-  const isCurrent = linkPage === currentPage;
+  const isCurrent = linkPage === currentPage || (linkPage === "servicios-imprenta-palma.html" && servicePages.has(currentPage));
 
   link.classList.toggle("sidebar__link--active", isCurrent);
 

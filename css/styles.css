@@ -271,6 +271,16 @@ textarea {
     linear-gradient(0deg, rgba(42, 42, 40, 0.28), transparent 45%);
 }
 
+.hero--services::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(236, 232, 228, 0.82) 0 32%, rgba(236, 232, 228, 0.36) 58%, rgba(42, 42, 40, 0.16) 100%),
+    linear-gradient(0deg, rgba(42, 42, 40, 0.2), transparent 42%);
+}
+
 .hero--projects::after {
   position: absolute;
   inset: 0;
@@ -781,7 +791,8 @@ textarea {
     min-height: 42rem;
   }
 
-  .hero--projects::after {
+  .hero--projects::after,
+  .hero--services::after {
     background:
       linear-gradient(0deg, rgba(236, 232, 228, 0.82) 0 36%, rgba(236, 232, 228, 0.2) 100%),
       linear-gradient(0deg, rgba(42, 42, 40, 0.16), transparent 45%);
