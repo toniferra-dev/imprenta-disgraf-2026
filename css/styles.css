@@ -559,6 +559,90 @@ textarea {
   font-weight: 650;
 }
 
+.seo-copy {
+  max-width: 72rem;
+  display: grid;
+  gap: 1.2rem;
+  color: var(--color-muted);
+  font-size: 1.06rem;
+  font-weight: 620;
+  line-height: 1.65;
+}
+
+.seo-copy p {
+  margin: 0;
+}
+
+.seo-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.7fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.seo-panel {
+  border: 1px solid var(--color-line);
+  background: #fff;
+  padding: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.seo-panel__title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.1;
+}
+
+.seo-list,
+.faq-list {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--color-muted);
+  font-weight: 650;
+}
+
+.faq-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-left: 0;
+  list-style: none;
+}
+
+.faq-list__item {
+  border: 1px solid var(--color-line);
+  background: #fff;
+  padding: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.faq-list__question {
+  margin: 0 0 0.65rem;
+  color: var(--color-ink);
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.faq-list__answer {
+  margin: 0;
+  color: var(--color-muted);
+  font-weight: 650;
+}
+
+.service-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.service-links a {
+  border: 1px solid var(--color-line);
+  background: #fff;
+  color: var(--color-brand);
+  padding: 0.75rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .quote,
 .location {
   display: grid;
@@ -820,7 +904,9 @@ textarea {
 
   .section__header--inline,
   .project-grid,
-  .story-grid {
+  .story-grid,
+  .seo-grid,
+  .faq-list {
     display: grid;
     grid-template-columns: 1fr;
   }
