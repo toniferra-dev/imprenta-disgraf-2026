@@ -292,17 +292,18 @@ textarea {
 }
 
 .hero--services .hero__content {
-  animation: services-hero-drift 8s ease-in-out infinite alternate;
+  animation: services-hero-drift 60s ease-in-out infinite;
   will-change: transform;
 }
 
 @keyframes services-hero-drift {
-  from {
-    transform: translateX(-0.85rem);
+  0%,
+  100% {
+    transform: translateX(0);
   }
 
-  to {
-    transform: translateX(0.85rem);
+  50% {
+    transform: translateX(calc(100vw - var(--sidebar-width) - min(46rem, 100%) - (var(--space-page) * 2)));
   }
 }
 
