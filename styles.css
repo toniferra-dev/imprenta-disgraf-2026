@@ -409,7 +409,6 @@ textarea {
 }
 
 .section__title,
-.technical-card__title,
 .quote__title {
   margin: 0;
   font-size: clamp(2.2rem, 4vw, 4.4rem);
@@ -473,79 +472,6 @@ textarea {
   text-transform: uppercase;
 }
 
-.technical-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
-  gap: 1.5rem;
-}
-
-.technical-card__content {
-  border: 1px solid var(--color-line);
-  padding: clamp(1.4rem, 3vw, 2.6rem);
-}
-
-.technical-card__content p {
-  max-width: 54rem;
-  color: var(--color-muted);
-  font-size: 1.08rem;
-  font-weight: 620;
-}
-
-.process-list {
-  flex-wrap: wrap;
-  margin: 2rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.process-list__item {
-  flex: 1 1 12rem;
-  border-top: 1px solid var(--color-line);
-  padding-top: 1rem;
-  font-weight: 800;
-}
-
-.process-list__step {
-  display: inline-grid;
-  width: 1.6rem;
-  height: 1.6rem;
-  place-items: center;
-  margin-right: 0.5rem;
-  background: var(--color-brand);
-  color: #fff;
-  font-size: 0.78rem;
-}
-
-.spec-card {
-  background: var(--color-panel);
-  color: var(--color-panel-text);
-  padding: clamp(1.4rem, 3vw, 2rem);
-}
-
-.spec-card__list {
-  display: grid;
-  gap: 1rem;
-  margin: 0;
-}
-
-.spec-card__row {
-  display: grid;
-  grid-template-columns: 6.5rem 1fr;
-  gap: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-  padding-bottom: 1rem;
-}
-
-.spec-card dt {
-  color: #b9afac;
-  font-weight: 800;
-}
-
-.spec-card dd {
-  margin: 0;
-  font-weight: 900;
-}
-
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -584,6 +510,33 @@ textarea {
 }
 
 .project-card__text {
+  margin: 0;
+  color: var(--color-muted);
+  font-weight: 650;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--color-line);
+  border-left: 1px solid var(--color-line);
+}
+
+.story-card {
+  min-height: 13rem;
+  border-right: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  padding: clamp(1.15rem, 2vw, 1.6rem);
+  background: #fff;
+}
+
+.story-card__title {
+  margin: 0 0 0.9rem;
+  font-size: 1.25rem;
+  line-height: 1.1;
+}
+
+.story-card p {
   margin: 0;
   color: var(--color-muted);
   font-weight: 650;
@@ -725,7 +678,6 @@ textarea {
     grid-column: 1 / -1;
   }
 
-  .technical-card,
   .quote,
   .location {
     grid-template-columns: 1fr;
@@ -793,7 +745,8 @@ textarea {
   }
 
   .section__header--inline,
-  .project-grid {
+  .project-grid,
+  .story-grid {
     display: grid;
     grid-template-columns: 1fr;
   }
