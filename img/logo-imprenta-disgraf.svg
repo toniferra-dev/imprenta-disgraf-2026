@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 454" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">Imprenta Disgraf</title>
+  <desc id="logo-desc">Logotipo oficial de Imprenta Disgraf con claim Impresión Digital, Offset y Gran Formato.</desc>
+  <rect width="2048" height="454" fill="#cf4438"/>
+  <g fill="#fff" font-family="'Arial Rounded MT Bold', 'Nunito Sans', 'Trebuchet MS', Arial, sans-serif" text-anchor="middle">
+    <text x="1024" y="219" font-size="158" font-weight="700" letter-spacing="18">IMPRENTADISGRAF</text>
+    <text x="1024" y="333" font-size="56" font-weight="700" letter-spacing="4">IMPRESIÓN DIGITAL • OFFSET • GRAN FORMATO</text>
+  </g>
+</svg>

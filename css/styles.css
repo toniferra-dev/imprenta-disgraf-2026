@@ -122,35 +122,12 @@ textarea {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
 }
 
-.brand__mark {
-  display: grid;
-  width: 2.75rem;
-  height: 2.75rem;
-  place-items: center;
-  background: var(--color-brand);
-  color: #fff;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-}
-
-.brand__text {
-  display: grid;
-  gap: 0.1rem;
-}
-
-.brand__name {
-  font-size: 0.98rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.brand__claim {
-  color: var(--color-muted);
-  font-size: 0.84rem;
+.brand__logo {
+  width: min(11.875rem, 58vw);
+  height: auto;
+  display: block;
 }
 
 .sidebar__toggle {
