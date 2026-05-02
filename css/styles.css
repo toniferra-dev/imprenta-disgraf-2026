@@ -60,6 +60,10 @@ textarea {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 :focus-visible {
   outline: 3px solid rgba(201, 15, 29, 0.4);
   outline-offset: 4px;
@@ -230,6 +234,22 @@ textarea {
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.sidebar__footer-button {
+  border: 0;
+  background: transparent;
+  color: var(--color-muted);
+  padding: 0;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sidebar__footer-button:hover {
+  color: var(--color-brand);
 }
 
 .main {
@@ -816,6 +836,175 @@ textarea {
   font-weight: 800;
 }
 
+.legal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cookie-banner {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 50;
+  width: min(42rem, calc(100vw - 2rem));
+  display: grid;
+  gap: 1.2rem;
+  border: 1px solid rgba(201, 15, 29, 0.26);
+  background: rgba(255, 253, 251, 0.96);
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.1rem, 2vw, 1.5rem);
+  backdrop-filter: blur(16px);
+}
+
+.cookie-banner__title,
+.cookie-modal__title {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  line-height: 1.1;
+}
+
+.cookie-banner__text {
+  margin: 0.75rem 0 0;
+  color: var(--color-muted);
+  font-weight: 650;
+}
+
+.cookie-banner__actions,
+.cookie-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cookie-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  background: rgba(29, 29, 31, 0.52);
+  padding: 1rem;
+}
+
+.cookie-modal-open {
+  overflow: hidden;
+}
+
+.cookie-modal__dialog {
+  width: min(46rem, 100%);
+  max-height: min(48rem, calc(100vh - 2rem));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  border: 1px solid rgba(201, 15, 29, 0.24);
+  background: var(--color-paper);
+  box-shadow: var(--shadow-soft);
+}
+
+.cookie-modal__header {
+  position: relative;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.cookie-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-line);
+  background: #fff;
+  color: var(--color-ink);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.cookie-modal__body {
+  display: grid;
+  gap: 0.9rem;
+  overflow: auto;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.cookie-modal__actions {
+  justify-content: flex-end;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border-top: 1px solid var(--color-line);
+  background: #fff;
+}
+
+.cookie-toggle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid var(--color-line);
+  background: #fff;
+  padding: 1rem;
+}
+
+.cookie-toggle__text {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.cookie-toggle__text strong {
+  font-size: 1rem;
+}
+
+.cookie-toggle__text span {
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.cookie-toggle__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cookie-toggle__control {
+  position: relative;
+  width: 3.4rem;
+  height: 1.8rem;
+  border: 1px solid #c7bbb7;
+  border-radius: 999px;
+  background: #efe8e5;
+  transition: background-color 180ms ease;
+}
+
+.cookie-toggle__control::after {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.22rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(29, 29, 31, 0.22);
+  content: "";
+  transition: transform 180ms ease;
+}
+
+.cookie-toggle__input:checked + .cookie-toggle__control {
+  background: var(--color-brand);
+}
+
+.cookie-toggle__input:checked + .cookie-toggle__control::after {
+  transform: translateX(1.55rem);
+}
+
+.cookie-toggle__input:focus-visible + .cookie-toggle__control {
+  outline: 3px solid rgba(201, 15, 29, 0.4);
+  outline-offset: 4px;
+}
+
+.cookie-toggle--locked {
+  background: var(--color-soft);
+}
+
 @media (max-width: 1180px) {
   .service-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -952,5 +1141,10 @@ textarea {
   .contact-banner {
     margin: 1rem;
     padding: 1rem;
+  }
+
+  .cookie-banner__actions,
+  .cookie-modal__actions {
+    display: grid;
   }
 }
