@@ -309,32 +309,11 @@ const googleReviews = [
   }
 ];
 
-const getMonthlySeed = () => {
-  const today = new Date();
-
-  return today.getFullYear() * 100 + today.getMonth() + 1;
-};
-
-const seededRandom = (seed) => {
-  let value = seed % 2147483647;
-
-  if (value <= 0) {
-    value += 2147483646;
-  }
-
-  return () => {
-    value = (value * 16807) % 2147483647;
-
-    return (value - 1) / 2147483646;
-  };
-};
-
-const getMonthlyReviews = (reviews, amount = 3) => {
+const getRandomReviews = (reviews, amount = 3) => {
   const favorableReviews = reviews.filter((review) => review.rating >= 4);
-  const random = seededRandom(getMonthlySeed());
 
   return favorableReviews
-    .map((review) => ({ review, sort: random() }))
+    .map((review) => ({ review, sort: Math.random() }))
     .sort((current, next) => current.sort - next.sort)
     .slice(0, amount)
     .map(({ review }) => review);
@@ -384,14 +363,14 @@ const createReviewCard = ({ name, rating, date, dateLabel, comment }) => {
 };
 
 if (reviewsSection && reviewsList) {
-  const monthlyReviews = getMonthlyReviews(googleReviews);
+  const randomReviews = getRandomReviews(googleReviews);
 
-  if (monthlyReviews.length === 0) {
+  if (randomReviews.length === 0) {
     reviewsSection.hidden = true;
   } else {
     const fragment = document.createDocumentFragment();
 
-    monthlyReviews.forEach((review) => {
+    randomReviews.forEach((review) => {
       fragment.append(createReviewCard(review));
     });
 
