@@ -798,6 +798,65 @@ button {
   border: 0;
 }
 
+.reviews {
+  border-top: 1px solid var(--color-line);
+  background: #fff;
+}
+
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.review-card {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  min-height: 15rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-soft);
+  padding: clamp(1.15rem, 2vw, 1.6rem);
+}
+
+.review-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.review-card__name {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.1;
+}
+
+.review-card__stars {
+  margin: 0;
+  color: var(--color-brand);
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.review-card__meta {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.review-card__text {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 1.02rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
 .legal-page {
   width: min(100%, 58rem);
   margin: 0 auto;
@@ -1094,6 +1153,7 @@ button {
   .section__header--inline,
   .project-grid,
   .story-grid,
+  .reviews__grid,
   .seo-grid,
   .faq-list {
     display: grid;
