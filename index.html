@@ -22,6 +22,7 @@
     <meta property="og:description" content="Imprenta local en Palma para rotulación, tarjetas, photocalls, catálogos, camisetas e impresión digital.">
     <meta property="og:url" content="https://www.imprentadisgraf.com/">
     <meta property="og:locale" content="es_ES">
+    <meta property="og:image" content="https://www.imprentadisgraf.com/img/home/hero-imprenta-disgraf-comic-1200.jpg">
     <link rel="stylesheet" href="./css/styles.css">
     <script type="application/ld+json">
       {
@@ -125,17 +126,36 @@
 
       <main class="main" id="contenido">
         <!-- Home: intención cristalina para "imprenta en Palma de Mallorca". -->
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero__media" aria-hidden="true">
-            <div class="press-preview">
-              <div class="press-preview__header"></div>
-              <div class="press-preview__body">
-                <span class="press-preview__sheet press-preview__sheet--one"></span>
-                <span class="press-preview__sheet press-preview__sheet--two"></span>
-                <span class="press-preview__sheet press-preview__sheet--three"></span>
-              </div>
-            </div>
-          </div>
+        <section class="hero hero--home" aria-labelledby="hero-title">
+          <picture class="hero__picture">
+            <source
+              type="image/avif"
+              srcset="
+                ./img/home/hero-imprenta-disgraf-comic-640.avif 640w,
+                ./img/home/hero-imprenta-disgraf-comic-1200.avif 1200w,
+                ./img/home/hero-imprenta-disgraf-comic-1774.avif 1774w
+              "
+              sizes="(max-width: 820px) 100vw, calc(100vw - 18rem)"
+            >
+            <source
+              type="image/jpeg"
+              srcset="
+                ./img/home/hero-imprenta-disgraf-comic-640.jpg 640w,
+                ./img/home/hero-imprenta-disgraf-comic-1200.jpg 1200w,
+                ./img/home/hero-imprenta-disgraf-comic-1774.jpg 1774w
+              "
+              sizes="(max-width: 820px) 100vw, calc(100vw - 18rem)"
+            >
+            <img
+              class="hero__image"
+              src="./img/home/hero-imprenta-disgraf-comic-1200.jpg"
+              width="1200"
+              height="600"
+              alt="Ilustración estilo cómic de Imprenta Disgraf con máquina de imprenta y sello de negocio local de Mallorca"
+              fetchpriority="high"
+              decoding="async"
+            >
+          </picture>
 
           <div class="hero__content">
             <p class="section-kicker">Imprenta local · Palma de Mallorca</p>

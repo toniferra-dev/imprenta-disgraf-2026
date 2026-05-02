@@ -270,15 +270,6 @@ textarea {
   background: #ece8e4;
 }
 
-.hero__media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  display: grid;
-  place-items: center;
-  opacity: 0.95;
-}
-
 .hero__picture {
   position: absolute;
   inset: 0;
@@ -292,6 +283,16 @@ textarea {
   object-fit: cover;
 }
 
+.hero--home::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(236, 232, 228, 0.78) 0 34%, rgba(236, 232, 228, 0.3) 58%, rgba(42, 42, 40, 0.2) 100%),
+    linear-gradient(0deg, rgba(42, 42, 40, 0.28), transparent 45%);
+}
+
 .hero--projects::after {
   position: absolute;
   inset: 0;
@@ -300,56 +301,6 @@ textarea {
   background:
     linear-gradient(90deg, rgba(236, 232, 228, 0.82) 0 30%, rgba(236, 232, 228, 0.28) 62%, rgba(236, 232, 228, 0.08) 100%),
     linear-gradient(0deg, rgba(42, 42, 40, 0.18), transparent 45%);
-}
-
-.press-preview {
-  width: min(72rem, 88%);
-  min-height: 31rem;
-  overflow: hidden;
-  border: 1px solid rgba(42, 42, 40, 0.12);
-  background: #f9f7f3;
-  box-shadow: var(--shadow-soft);
-  transform: translateY(-2rem);
-}
-
-.press-preview__header {
-  height: 5.4rem;
-  background: linear-gradient(90deg, #173f52 0 64%, #f5f0ec 64% 100%);
-}
-
-.press-preview__body {
-  position: relative;
-  min-height: 25.5rem;
-  background:
-    linear-gradient(90deg, rgba(201, 15, 29, 0.08) 1px, transparent 1px) 0 0 / 6rem 6rem,
-    linear-gradient(#ffffff 0 0);
-}
-
-.press-preview__sheet {
-  position: absolute;
-  display: block;
-  border: 1px solid #d8ceca;
-  background: #fff;
-}
-
-.press-preview__sheet--one {
-  inset: 4rem auto auto 5rem;
-  width: 18rem;
-  height: 13rem;
-}
-
-.press-preview__sheet--two {
-  inset: 8rem 8rem auto auto;
-  width: 21rem;
-  height: 11rem;
-  background: #2a2a28;
-}
-
-.press-preview__sheet--three {
-  inset: auto auto 3rem 26rem;
-  width: 16rem;
-  height: 8rem;
-  background: #e6ded8;
 }
 
 .hero__content {
