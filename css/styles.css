@@ -296,6 +296,16 @@ textarea {
   will-change: transform;
 }
 
+.hero--service-detail::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(236, 232, 228, 0.78) 0 30%, rgba(236, 232, 228, 0.25) 58%, rgba(42, 42, 40, 0.18) 100%),
+    linear-gradient(0deg, rgba(42, 42, 40, 0.2), transparent 42%);
+}
+
 @keyframes services-hero-drift {
   0%,
   100% {
@@ -797,7 +807,8 @@ textarea {
     min-height: 42rem;
   }
 
-  .hero--projects::after {
+  .hero--projects::after,
+  .hero--service-detail::after {
     background:
       linear-gradient(0deg, rgba(236, 232, 228, 0.82) 0 36%, rgba(236, 232, 228, 0.2) 100%),
       linear-gradient(0deg, rgba(42, 42, 40, 0.16), transparent 45%);
