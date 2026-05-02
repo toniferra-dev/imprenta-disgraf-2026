@@ -36,3 +36,32 @@ menuLinks.forEach((link) => {
     link.removeAttribute("aria-current");
   }
 });
+
+// Static-site quote form: builds a recognizable email for test and production review.
+const mailtoForm = document.querySelector("[data-mailto-form]");
+
+if (mailtoForm) {
+  mailtoForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(mailtoForm);
+    const recipient = mailtoForm.dataset.mailtoRecipient;
+    const subject = mailtoForm.dataset.mailtoSubject || "Solicitud de presupuesto vía web";
+    const submittedAt = new Date().toLocaleString("es-ES", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+
+    const bodyLines = [
+      "Solicitud de presupuesto vía web - Imprenta Disgraf",
+      "",
+      `Fecha: ${submittedAt}`,
+      "",
+      ...[...formData.entries()].map(([key, value]) => `${key}: ${value || "No indicado"}`),
+      "",
+      "Origen: formulario de presupuesto de la web",
+    ];
+
+    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+  });
+}

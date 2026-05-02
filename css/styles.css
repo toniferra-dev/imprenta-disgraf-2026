@@ -608,6 +608,41 @@ textarea {
   resize: vertical;
 }
 
+.seo-banner {
+  margin: 0 var(--space-page) var(--space-page);
+  border: 1px solid var(--color-line);
+  background: #fff;
+}
+
+.seo-banner picture {
+  display: block;
+  background: var(--color-soft);
+}
+
+.seo-banner__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: cover;
+}
+
+.seo-banner__caption {
+  display: grid;
+  gap: 0.45rem;
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+}
+
+.seo-banner__caption strong {
+  font-size: clamp(1.35rem, 2vw, 2.2rem);
+  line-height: 1.1;
+}
+
+.seo-banner__caption span:last-child {
+  color: var(--color-muted);
+  font-weight: 650;
+}
+
 .location {
   align-items: stretch;
   margin-top: 0;
@@ -796,7 +831,8 @@ textarea {
   }
 
   .quote,
-  .location {
+  .location,
+  .seo-banner {
     margin: 1rem;
     padding: 1rem;
   }
