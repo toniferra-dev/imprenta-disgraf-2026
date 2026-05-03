@@ -71,10 +71,18 @@ const hasConsent = (category) => {
   return Boolean(consent?.categories?.[category]);
 };
 
+let cookiePreferencesTrigger = null;
+
 const removeConsentUi = () => {
   document.querySelector("[data-cookie-consent]")?.remove();
   document.querySelector("[data-cookie-preferences]")?.remove();
   document.body.classList.remove("cookie-modal-open");
+
+  if (cookiePreferencesTrigger?.isConnected) {
+    cookiePreferencesTrigger.focus();
+  }
+
+  cookiePreferencesTrigger = null;
 };
 
 const buildToggle = (category, checked = false) => {
@@ -92,9 +100,11 @@ const buildToggle = (category, checked = false) => {
   `;
 };
 
-const openPreferences = () => {
+const openPreferences = (trigger = document.activeElement) => {
   const currentConsent = readConsent();
   const categories = currentConsent?.categories || cookieConsentConfig.categories;
+
+  cookiePreferencesTrigger = trigger instanceof HTMLElement ? trigger : document.activeElement;
 
   document.querySelector("[data-cookie-preferences]")?.remove();
   document.body.classList.add("cookie-modal-open");
@@ -103,10 +113,11 @@ const openPreferences = () => {
   modal.className = "cookie-modal";
   modal.dataset.cookiePreferences = "";
   modal.innerHTML = `
-    <div class="cookie-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="cookie-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title" aria-describedby="cookie-modal-description">
       <div class="cookie-modal__header">
         <p class="section-kicker">Preferencias de privacidad</p>
         <h2 class="cookie-modal__title" id="cookie-modal-title">Configurar cookies</h2>
+        <p class="cookie-modal__description" id="cookie-modal-description">Activa o desactiva las categorías de cookies no esenciales antes de guardar tu selección.</p>
         <button class="cookie-modal__close" type="button" data-cookie-close aria-label="Cerrar preferencias">×</button>
       </div>
       <div class="cookie-modal__body">
@@ -132,6 +143,28 @@ const openPreferences = () => {
 
   document.body.append(modal);
   modal.querySelector("[data-cookie-close]").focus();
+};
+
+const trapPreferencesFocus = (event) => {
+  const modal = document.querySelector("[data-cookie-preferences]");
+
+  if (!modal || event.key !== "Tab") return;
+
+  const focusableElements = [...modal.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])")]
+    .filter((element) => !element.hasAttribute("hidden") && element.offsetParent !== null);
+
+  if (focusableElements.length === 0) return;
+
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
+
+  if (event.shiftKey && document.activeElement === firstElement) {
+    event.preventDefault();
+    lastElement.focus();
+  } else if (!event.shiftKey && document.activeElement === lastElement) {
+    event.preventDefault();
+    firstElement.focus();
+  }
 };
 
 const showBanner = () => {
@@ -193,13 +226,14 @@ document.addEventListener("click", (event) => {
 
   if (target.matches("[data-cookie-accept]")) acceptAll();
   if (target.matches("[data-cookie-reject]")) rejectAll();
-  if (target.matches("[data-cookie-settings]")) openPreferences();
+  if (target.matches("[data-cookie-settings]")) openPreferences(target);
   if (target.matches("[data-cookie-save]")) saveSelection();
   if (target.matches("[data-cookie-close]")) removeConsentUi();
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") removeConsentUi();
+  trapPreferencesFocus(event);
 });
 
 window.DisgrafCookies = {
@@ -213,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const needsRefresh = consent?.version !== cookieConsentConfig.version;
 
   document.querySelectorAll("[data-cookie-open]").forEach((button) => {
-    button.addEventListener("click", openPreferences);
+    button.addEventListener("click", () => openPreferences(button));
   });
 
   if (!consent || needsRefresh) {

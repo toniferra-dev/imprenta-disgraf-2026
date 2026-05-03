@@ -929,6 +929,12 @@ button {
   font-weight: 650;
 }
 
+.cookie-modal__description {
+  margin: 0.75rem 0 0;
+  color: var(--color-muted);
+  font-weight: 650;
+}
+
 .cookie-banner__actions,
 .cookie-modal__actions {
   display: flex;
