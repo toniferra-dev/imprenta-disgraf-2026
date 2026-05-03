@@ -2,6 +2,19 @@
 
 Sitio web estático para Imprenta Disgraf, imprenta física ubicada en Palma de Mallorca. El proyecto está construido con HTML, CSS y JavaScript vanilla, con foco en SEO local, rendimiento, accesibilidad básica y mantenimiento sencillo antes del despliegue en Vercel.
 
+## Repositorio
+
+- GitHub: `https://github.com/toniferra-dev/imprenta-disgraf-2026`
+- Web: `https://www.imprentadisgraf.com`
+
+## Inicio rápido
+
+```bash
+git clone https://github.com/toniferra-dev/imprenta-disgraf-2026.git
+cd imprenta-disgraf-2026
+python3 -m http.server 8000
+```
+
 ## Objetivo
 
 Crear una web multipágina clara para Google y útil para clientes locales:
