@@ -61,6 +61,8 @@ website/
 |   |-- main.js
 |   |-- cookies.js
 |   `-- reviews.js
+|-- api/
+|   `-- presupuesto.js
 |-- img/
 |-- favicon.svg
 |-- site.webmanifest
@@ -142,7 +144,19 @@ Mejoras progresivas:
 
 - Menú lateral responsive.
 - Estado activo de navegación.
-- Formulario de presupuesto vía `mailto`.
+- Formulario de presupuesto conectado a la API serverless de Vercel.
+
+### `api/presupuesto.js`
+
+Endpoint serverless para enviar solicitudes de presupuesto por email usando Resend.
+
+Variables de entorno necesarias en Vercel:
+
+- `RESEND_API_KEY`: API key de Resend.
+- `QUOTE_TO_EMAIL`: email receptor. Para pruebas puede ser `cldisgraf@toniferra.com`.
+- `QUOTE_FROM_EMAIL`: remitente verificado en Resend, por ejemplo `Imprenta Disgraf <presupuestos@imprentadisgraf.com>`.
+
+El formulario incluye validación básica, campo honeypot antispam y `reply_to` con el email introducido por el cliente.
 
 ### `cookies.js`
 
@@ -172,7 +186,8 @@ Checklist recomendado:
 
 - Revisar que el dominio definitivo sea `https://www.imprentadisgraf.com/`.
 - Confirmar si se mantienen URLs con `.html` o se configuran URLs limpias en Vercel.
-- Revisar email final del formulario de presupuesto.
+- Configurar `RESEND_API_KEY`, `QUOTE_TO_EMAIL` y `QUOTE_FROM_EMAIL` en Vercel.
+- Revisar email final del formulario de presupuesto antes de activar producción.
 - Conectar Google Search Console tras deploy.
 - Enviar `sitemap.xml` en Search Console.
 - Actualizar el enlace de la web en Google Business Profile.

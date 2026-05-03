@@ -700,6 +700,14 @@ button {
   flex-basis: 100%;
 }
 
+.quote-form__field--bot {
+  position: absolute;
+  left: -999rem;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .quote-form__label {
   font-size: 0.78rem;
   font-weight: 900;
@@ -718,6 +726,21 @@ button {
 
 .quote-form__textarea {
   resize: vertical;
+}
+
+.quote-form__status {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+.quote-form__status[data-status="success"] {
+  color: #216b3a;
+}
+
+.quote-form__status[data-status="error"] {
+  color: var(--color-brand);
 }
 
 .seo-banner {

@@ -1,6 +1,6 @@
 /**
  * Small progressive enhancements for the static site.
- * The page remains usable without JavaScript: page links and mailto form still work.
+ * The page remains usable without JavaScript: page links and server-side forms still work.
  */
 
 const sidebar = document.querySelector(".sidebar");
@@ -45,31 +45,44 @@ menuLinks.forEach((link) => {
   }
 });
 
-// Static-site quote form: builds a recognizable email for test and production review.
-const mailtoForm = document.querySelector("[data-mailto-form]");
+// Vercel quote form: sends budget requests through the serverless API.
+const quoteForm = document.querySelector("[data-quote-form]");
 
-if (mailtoForm) {
-  mailtoForm.addEventListener("submit", (event) => {
+if (quoteForm) {
+  quoteForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(mailtoForm);
-    const recipient = mailtoForm.dataset.mailtoRecipient;
-    const subject = mailtoForm.dataset.mailtoSubject || "Solicitud de presupuesto vía web";
-    const submittedAt = new Date().toLocaleString("es-ES", {
-      dateStyle: "medium",
-      timeStyle: "short",
-    });
+    const submitButton = quoteForm.querySelector("[type='submit']");
+    const status = quoteForm.querySelector("[data-quote-status]");
+    const formData = new FormData(quoteForm);
 
-    const bodyLines = [
-      "Solicitud de presupuesto vía web - Imprenta Disgraf",
-      "",
-      `Fecha: ${submittedAt}`,
-      "",
-      ...[...formData.entries()].map(([key, value]) => `${key}: ${value || "No indicado"}`),
-      "",
-      "Origen: formulario de presupuesto de la web",
-    ];
+    submitButton.disabled = true;
+    status.textContent = "Enviando solicitud...";
+    status.dataset.status = "loading";
 
-    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    try {
+      const response = await fetch(quoteForm.action, {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(formData.entries())),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "No se ha podido enviar la solicitud.");
+      }
+
+      quoteForm.reset();
+      status.textContent = result.message;
+      status.dataset.status = "success";
+    } catch (error) {
+      status.textContent = error.message || "No se ha podido enviar. Prueba por teléfono o email.";
+      status.dataset.status = "error";
+    } finally {
+      submitButton.disabled = false;
+    }
   });
 }
