@@ -281,14 +281,24 @@ button {
   object-fit: cover;
 }
 
+.hero--home {
+  min-height: auto;
+  align-items: stretch;
+  padding: 0;
+}
+
+.hero--home .hero__picture {
+  position: relative;
+  inset: auto;
+  min-height: clamp(22rem, 43vw, 40rem);
+}
+
+.hero--home .hero__image {
+  min-height: inherit;
+}
+
 .hero--home::after {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  content: "";
-  background:
-    linear-gradient(90deg, rgba(236, 232, 228, 0.78) 0 34%, rgba(236, 232, 228, 0.3) 58%, rgba(42, 42, 40, 0.2) 100%),
-    linear-gradient(0deg, rgba(42, 42, 40, 0.28), transparent 45%);
+  content: none;
 }
 
 .hero--projects::after {
@@ -309,6 +319,33 @@ button {
   background: rgba(255, 253, 251, 0.91);
   padding: clamp(1.5rem, 4vw, 3.2rem);
   backdrop-filter: blur(12px);
+}
+
+.hero--home .hero__content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.9fr) minmax(20rem, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+  border-right: 0;
+  border-left: 0;
+  background: #fffdfb;
+  padding: clamp(1.5rem, 4vw, 3.25rem) var(--space-page);
+  backdrop-filter: none;
+}
+
+.hero--home .section-kicker,
+.hero--home .hero__title {
+  grid-column: 1;
+}
+
+.hero--home .hero__lead,
+.hero--home .hero__actions {
+  grid-column: 2;
+}
+
+.hero--home .hero__lead {
+  margin-top: 0;
 }
 
 .hero--services .hero__content {
@@ -1178,6 +1215,10 @@ button {
     min-height: 42rem;
   }
 
+  .hero--home {
+    min-height: auto;
+  }
+
   .hero--projects::after,
   .hero--service-detail::after {
     background:
@@ -1187,6 +1228,21 @@ button {
 
   .hero__title {
     max-width: 11ch;
+  }
+
+  .hero--home .hero__content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero--home .section-kicker,
+  .hero--home .hero__title,
+  .hero--home .hero__lead,
+  .hero--home .hero__actions {
+    grid-column: 1;
+  }
+
+  .hero--home .hero__lead {
+    margin-top: 1rem;
   }
 
   .section__header--inline,
@@ -1214,17 +1270,22 @@ button {
     padding-left: 1rem;
   }
 
+  .hero--home {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
   .hero__content {
     padding: 1.25rem;
   }
 
+  .hero__picture {
+    left: -300px;
+  }
 
-.hero--home::after {
-  background: transparent;
-}
-.hero__picture {
-left: -300px;
-}
+  .hero--home .hero__picture {
+    left: auto;
+  }
 
   .button {
     width: 100%;
