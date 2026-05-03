@@ -165,6 +165,10 @@ Checklist recomendado:
 - Actualizar el enlace de la web en Google Business Profile.
 - Revisar reseñas de Google periódicamente.
 
+## Git
+
+El repositorio incluye `.gitignore` para evitar subir archivos locales de macOS, configuración de editores, variables de entorno, logs, dependencias, salidas de build, metadatos locales de Vercel y artefactos de test.
+
 ## Autoría
 
 Proyecto diseñado y desarrollado por Toni Ferrà.
