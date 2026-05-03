@@ -165,6 +165,16 @@ Checklist recomendado:
 - Actualizar el enlace de la web en Google Business Profile.
 - Revisar reseñas de Google periódicamente.
 
+## Autoría
+
+Proyecto diseñado y desarrollado por Toni Ferrà.
+
+- Estrategia SEO local.
+- Arquitectura web.
+- Diseño UI.
+- Desarrollo HTML, CSS y JavaScript.
+- Preparación para GitHub y despliegue en Vercel.
+
 ## Licencia y uso
 
 Proyecto creado para Imprenta Disgraf. El contenido, imágenes, diseño y código se preparan para este cliente y no deberían reutilizarse como plantilla pública sin autorización.
