@@ -300,7 +300,11 @@ button {
     linear-gradient(90deg, rgba(236, 232, 228, 0.82) 0 30%, rgba(236, 232, 228, 0.28) 62%, rgba(236, 232, 228, 0.08) 100%),
     linear-gradient(0deg, rgba(42, 42, 40, 0.18), transparent 45%);
 }
-
+.hero__before{
+  display: flex !important;
+  width: 100% !important;
+  justify-content: space-between !important;
+}
 .hero__content {
   position: relative;
   z-index: 1;
@@ -1207,6 +1211,17 @@ button {
   .hero__content {
     padding: 1.25rem;
   }
+
+  .hero__before{
+  flex-direction: column;
+}
+
+.hero--home::after {
+  background: transparent;
+}
+.hero__picture {
+left: -300px;
+}
 
   .button {
     width: 100%;
