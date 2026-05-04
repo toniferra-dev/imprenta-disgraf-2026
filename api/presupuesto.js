@@ -139,6 +139,15 @@ module.exports = async (request, response) => {
   });
 
   if (!resendResponse.ok) {
+    const errorBody = await resendResponse.text();
+
+    console.error("Resend email error", {
+      status: resendResponse.status,
+      body: errorBody,
+      from: fromEmail,
+      to: toEmail,
+    });
+
     return jsonResponse(response, 502, {
       ok: false,
       message: "No se ha podido enviar el presupuesto. Inténtalo de nuevo o contacta por teléfono.",
