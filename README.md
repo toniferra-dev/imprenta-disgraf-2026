@@ -24,6 +24,7 @@ Crear una web multipágina clara para Google y útil para clientes locales:
 - Contacto presencial, teléfono, email y Google Maps como vías principales de conversión.
 - Sin ecommerce ni pedidos online.
 - Presupuesto personalizado y recogida física en Calle Manacor 36.
+- Rotulación enfocada a negocios, escaparates, interiores, eventos y vehículos comerciales, sin crear una landing específica de rotulación de vehículos.
 
 ## Stack
 
