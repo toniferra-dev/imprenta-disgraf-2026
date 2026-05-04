@@ -950,6 +950,47 @@ button {
   padding-left: 1.25rem;
 }
 
+.not-found {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  padding: var(--space-page);
+  background:
+    linear-gradient(135deg, rgba(201, 15, 29, 0.08), transparent 34%),
+    #f7f2ee;
+}
+
+.not-found__content {
+  width: min(100%, 56rem);
+  border: 1px solid rgba(201, 15, 29, 0.2);
+  background: #fffdfb;
+  padding: clamp(2rem, 6vw, 5rem);
+}
+
+.not-found__title {
+  max-width: 12ch;
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.not-found__lead {
+  max-width: 44rem;
+  margin: 1.5rem 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.not-found__note {
+  margin: 1rem 0 0;
+  color: var(--color-brand);
+  font-weight: 900;
+}
+
 .legal-content a {
   color: var(--color-brand);
   font-weight: 800;

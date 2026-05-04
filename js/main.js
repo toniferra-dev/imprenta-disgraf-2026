@@ -86,3 +86,21 @@ if (quoteForm) {
     }
   });
 }
+
+// Friendly 404: gives users time to choose before returning them to the home page.
+const redirectCountdown = document.querySelector("[data-redirect-countdown]");
+const redirectTarget = document.querySelector("[data-redirect-target]");
+
+if (redirectCountdown && redirectTarget) {
+  let secondsLeft = Number.parseInt(redirectCountdown.dataset.redirectCountdown, 10);
+
+  const redirectTimer = window.setInterval(() => {
+    secondsLeft -= 1;
+    redirectCountdown.textContent = String(Math.max(secondsLeft, 0));
+
+    if (secondsLeft <= 0) {
+      window.clearInterval(redirectTimer);
+      window.location.href = redirectTarget.href;
+    }
+  }, 1000);
+}

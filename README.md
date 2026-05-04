@@ -50,6 +50,7 @@ website/
 |-- trabajos-imprenta-mallorca.html
 |-- presupuesto-imprenta-palma.html
 |-- contacto-imprenta-palma.html
+|-- 404.html
 |-- aviso-legal.html
 |-- condiciones-uso.html
 |-- cookies.html
@@ -117,6 +118,7 @@ El proyecto incluye:
 - Open Graph en páginas indexables.
 - `robots.txt`.
 - `sitemap.xml` con `lastmod`.
+- `404.html` amable, con `noindex` y redirección suave a inicio.
 - Datos estructurados `LocalBusiness`, `Service`, `CollectionPage` e `ImageObject` donde aplica.
 - Arquitectura multipágina basada en intención de búsqueda.
 
