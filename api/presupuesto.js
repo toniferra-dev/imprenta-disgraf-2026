@@ -112,8 +112,8 @@ module.exports = async (request, response) => {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.QUOTE_TO_EMAIL || "cldisgraf@toniferra.com";
-  const fromEmail = process.env.QUOTE_FROM_EMAIL || "Imprenta Disgraf <presupuestos@imprentadisgraf.com>";
+  const toEmail = process.env.QUOTE_TO_EMAIL || "info@imprentadisgraf.com";
+  const fromEmail = process.env.QUOTE_FROM_EMAIL || "Imprenta Disgraf <info@imprentadisgraf.com>";
 
   if (!apiKey) {
     return jsonResponse(response, 500, {

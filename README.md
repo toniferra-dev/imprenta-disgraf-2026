@@ -156,8 +156,8 @@ Endpoint serverless para enviar solicitudes de presupuesto por email usando Rese
 Variables de entorno necesarias en Vercel:
 
 - `RESEND_API_KEY`: API key de Resend.
-- `QUOTE_TO_EMAIL`: email receptor. Para pruebas puede ser `cldisgraf@toniferra.com`.
-- `QUOTE_FROM_EMAIL`: remitente verificado en Resend, por ejemplo `Imprenta Disgraf <presupuestos@imprentadisgraf.com>`.
+- `QUOTE_TO_EMAIL`: email receptor final, `info@imprentadisgraf.com`.
+- `QUOTE_FROM_EMAIL`: remitente verificado en Resend, `Imprenta Disgraf <info@imprentadisgraf.com>`.
 
 El formulario incluye validación básica, campo honeypot antispam y `reply_to` con el email introducido por el cliente.
 
