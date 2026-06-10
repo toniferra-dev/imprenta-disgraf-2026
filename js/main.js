@@ -8,15 +8,23 @@ const menuToggle = document.querySelector(".sidebar__toggle");
 const menuLinks = document.querySelectorAll(".sidebar__link");
 
 if (sidebar && menuToggle) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = sidebar.classList.toggle("sidebar--open");
+  const menuToggleLabel = menuToggle.querySelector(".visually-hidden");
+
+  const setMenuState = (isOpen) => {
     menuToggle.setAttribute("aria-expanded", String(isOpen));
+    if (menuToggleLabel) {
+      menuToggleLabel.textContent = isOpen ? "Cerrar menú" : "Abrir menú";
+    }
+  };
+
+  menuToggle.addEventListener("click", () => {
+    setMenuState(sidebar.classList.toggle("sidebar--open"));
   });
 
   menuLinks.forEach((link) => {
     link.addEventListener("click", () => {
       sidebar.classList.remove("sidebar--open");
-      menuToggle.setAttribute("aria-expanded", "false");
+      setMenuState(false);
     });
   });
 }
@@ -79,7 +87,7 @@ if (quoteForm) {
       status.textContent = result.message;
       status.dataset.status = "success";
     } catch (error) {
-      status.textContent = error.message || "No se ha podido enviar. Prueba por teléfono o email.";
+      status.textContent = `Error: ${error.message || "No se ha podido enviar. Prueba por teléfono o email."}`;
       status.dataset.status = "error";
     } finally {
       submitButton.disabled = false;
@@ -88,6 +96,7 @@ if (quoteForm) {
 }
 
 // Friendly 404: gives users time to choose before returning them to the home page.
+// WCAG 2.2.1: the countdown stops on any interaction and can be cancelled explicitly.
 const redirectCountdown = document.querySelector("[data-redirect-countdown]");
 const redirectTarget = document.querySelector("[data-redirect-target]");
 
@@ -103,4 +112,20 @@ if (redirectCountdown && redirectTarget) {
       window.location.href = redirectTarget.href;
     }
   }, 1000);
+
+  const redirectNote = document.querySelector("[data-redirect-note]");
+
+  const cancelRedirect = () => {
+    window.clearInterval(redirectTimer);
+    if (redirectNote) {
+      redirectNote.textContent = "Redirección automática cancelada. Elige una opción cuando quieras.";
+    }
+  };
+
+  // Safety net for assistive tech that fires click without pointer/key events.
+  document.querySelector("[data-redirect-cancel]")?.addEventListener("click", cancelRedirect);
+
+  ["keydown", "pointerdown"].forEach((eventType) => {
+    document.addEventListener(eventType, cancelRedirect, { once: true });
+  });
 }

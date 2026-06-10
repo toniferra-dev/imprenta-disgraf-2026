@@ -51,7 +51,7 @@
             <a class="contact-card__item" href="mailto:info@imprentadisgraf.com"><span class="contact-card__label">Email</span>info@imprentadisgraf.com</a>
             <span class="contact-card__item"><span class="contact-card__label">Dirección</span>Calle Manacor 36<br>07006 Palma de Mallorca</span>
           </address>
-          <a class="sidebar__map-link" href="https://www.google.com/maps/search/?api=1&query=Calle%20Manacor%2036%2007006%20Palma%20de%20Mallorca" rel="noopener" target="_blank">Ver en Google Maps</a>
+          <a class="sidebar__map-link" href="https://www.google.com/maps/search/?api=1&query=Calle%20Manacor%2036%2007006%20Palma%20de%20Mallorca" rel="noopener" target="_blank">Ver en Google Maps<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
         </div>
         <footer class="sidebar__footer">
           <a href="/politica-privacidad.html">Política de privacidad</a>
@@ -69,8 +69,9 @@
             <p class="not-found__lead">
               No pasa nada. Te llevamos de vuelta a la web de Imprenta Disgraf para que puedas encontrar servicios, contacto o pedir presupuesto.
             </p>
-            <p class="not-found__note">
+            <p class="not-found__note" data-redirect-note>
               Redirección automática a inicio en <span data-redirect-countdown="8">8</span> segundos.
+              <button class="not-found__cancel" type="button" data-redirect-cancel>Cancelar redirección</button>
             </p>
             <div class="hero__actions" aria-label="Opciones principales">
               <a class="button button--primary" href="/index.html" data-redirect-target>Volver a inicio</a>

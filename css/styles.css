@@ -13,6 +13,7 @@
   --color-line: #eadfdb;
   --color-brand: #c90f1d;
   --color-brand-dark: #960814;
+  --color-brand-on-dark: #ff96a0;
   --color-panel: #2a2a28;
   --color-panel-text: #f6efec;
   --shadow-soft: 0 24px 70px rgba(29, 29, 31, 0.11);
@@ -28,8 +29,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -65,8 +68,9 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(201, 15, 29, 0.4);
-  outline-offset: 4px;
+  outline: 3px solid var(--color-brand);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--color-paper);
 }
 
 .visually-hidden {
@@ -109,6 +113,7 @@ button {
   display: flex;
   width: var(--sidebar-width);
   flex-direction: column;
+  overflow-y: auto;
   border-right: 1px solid var(--color-line);
   background: #fbfaf8;
 }
@@ -230,7 +235,7 @@ button {
 
 .sidebar__footer a {
   color: var(--color-muted);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -242,7 +247,7 @@ button {
   color: var(--color-muted);
   padding: 0;
   text-align: left;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -348,11 +353,6 @@ button {
   margin-top: 0;
 }
 
-.hero--services .hero__content {
-  animation: services-hero-drift 60s ease-in-out infinite;
-  will-change: transform;
-}
-
 .hero--service-detail::after {
   position: absolute;
   inset: 0;
@@ -361,17 +361,6 @@ button {
   background:
     linear-gradient(90deg, rgba(236, 232, 228, 0.78) 0 30%, rgba(236, 232, 228, 0.25) 58%, rgba(42, 42, 40, 0.18) 100%),
     linear-gradient(0deg, rgba(42, 42, 40, 0.2), transparent 42%);
-}
-
-@keyframes services-hero-drift {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(calc(100vw - var(--sidebar-width) - min(46rem, 100%) - (var(--space-page) * 2)));
-  }
 }
 
 .hero__title {
@@ -491,9 +480,14 @@ button {
 }
 
 .service-card__number {
-  color: var(--color-brand);
+  color: var(--color-brand-on-dark);
   font-size: 0.8rem;
   font-weight: 900;
+}
+
+.service-card:hover .service-card__number,
+.service-card:focus-within .service-card__number {
+  color: var(--color-brand);
 }
 
 .service-card__title {
@@ -514,6 +508,15 @@ button {
   font-weight: 900;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.service-card .service-card__link {
+  color: var(--color-brand-on-dark);
+}
+
+.service-card:hover .service-card__link,
+.service-card:focus-within .service-card__link {
+  color: var(--color-brand);
 }
 
 .project-grid {
@@ -614,6 +617,16 @@ button {
   margin: 0;
   color: var(--color-muted);
   font-weight: 650;
+}
+
+.story-card p a,
+.seo-copy a,
+.quote__content p a,
+.location__content p a {
+  color: var(--color-brand);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .seo-copy {
@@ -750,6 +763,18 @@ button {
   font-weight: 900;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.quote-form__hint,
+.quote-form__required-note {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.quote-form__required-note {
+  flex-basis: 100%;
 }
 
 .quote-form__input {
@@ -991,6 +1016,16 @@ button {
   font-weight: 900;
 }
 
+.not-found__cancel {
+  margin-left: 0.6rem;
+  border: 1px solid var(--color-brand);
+  background: transparent;
+  color: var(--color-brand);
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
 .legal-content a {
   color: var(--color-brand);
   font-weight: 800;
@@ -1163,8 +1198,9 @@ button {
 }
 
 .cookie-toggle__input:focus-visible + .cookie-toggle__control {
-  outline: 3px solid rgba(201, 15, 29, 0.4);
-  outline-offset: 4px;
+  outline: 3px solid var(--color-brand);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--color-paper);
 }
 
 .cookie-toggle--locked {
@@ -1294,13 +1330,6 @@ button {
   .faq-list {
     display: grid;
     grid-template-columns: 1fr;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero--services .hero__content {
-    animation: none;
-    transform: none;
   }
 }
 

@@ -77,6 +77,7 @@ const removeConsentUi = () => {
   document.querySelector("[data-cookie-consent]")?.remove();
   document.querySelector("[data-cookie-preferences]")?.remove();
   document.body.classList.remove("cookie-modal-open");
+  document.querySelector(".site-shell")?.removeAttribute("inert");
 
   if (cookiePreferencesTrigger?.isConnected) {
     cookiePreferencesTrigger.focus();
@@ -142,6 +143,8 @@ const openPreferences = (trigger = document.activeElement) => {
   `;
 
   document.body.append(modal);
+  // Keep screen reader virtual cursors inside the dialog while it is open.
+  document.querySelector(".site-shell")?.setAttribute("inert", "");
   modal.querySelector("[data-cookie-close]").focus();
 };
 
