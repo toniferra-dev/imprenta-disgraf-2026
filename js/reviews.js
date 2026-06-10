@@ -345,8 +345,16 @@ const createReviewCard = ({ name, rating, date, dateLabel, comment }) => {
 
   const stars = document.createElement("p");
   stars.className = "review-card__stars";
-  stars.setAttribute("aria-label", `${rating} de 5 estrellas`);
-  stars.textContent = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+  const starsVisual = document.createElement("span");
+  starsVisual.setAttribute("aria-hidden", "true");
+  starsVisual.textContent = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+  const starsText = document.createElement("span");
+  starsText.className = "visually-hidden";
+  starsText.textContent = `Valoración: ${rating} de 5 estrellas`;
+
+  stars.append(starsVisual, starsText);
 
   const meta = document.createElement("p");
   meta.className = "review-card__meta";
